@@ -1,0 +1,3 @@
+ini apa
+<br>
+{{ $xx}}
