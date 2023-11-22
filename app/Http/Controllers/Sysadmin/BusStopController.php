@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Sysadmin;
 use App\Models\BusStop;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Crypt;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
@@ -91,9 +92,13 @@ class BusStopController extends Controller
      * @param  \App\Models\BusStop  $busStop
      * @return \Illuminate\Http\Response
      */
-    public function edit(BusStop $busStop)
+    public function edit($id)
     {
-        //
+        $decrypted = Crypt::decryptString($id);
+        $data = BusStop::findOrFail($decrypted);
+        return view('sysadmin.busstop.edit', [
+            'data' => $data,
+        ]);
     }
 
     /**
@@ -103,9 +108,15 @@ class BusStopController extends Controller
      * @param  \App\Models\BusStop  $busStop
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BusStop $busStop)
+    public function update(Request $request, $id)
     {
-        //
+        $busstop = BusStop::findOrFail($id);
+        $busstop->nama_halte = $request->nama_halte;
+        $busstop->koridor = $request->koridor;
+        $busstop->save();
+            Alert::toast('Data Berhasil Di Ubah.', 'success')->width('25rem')->padding('5px');
+            return redirect()->route('halte');
+        
     }
 
     /**
