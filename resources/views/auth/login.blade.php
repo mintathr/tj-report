@@ -42,7 +42,7 @@
                     <input type="text" name="user_id" class="form-control" placeholder="NIK" value="{{ old('user_id') }}">
                 </div>
                 <div>
-                    <input type="password" name="password" value="P@gis0re" class="form-control upass" placeholder="Password">
+                    <input type="password" name="password" class="form-control upass" placeholder="Password">
                     <input type="checkbox" class="flat_check"> Show Password
                 </div>
                 <div>
