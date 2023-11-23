@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 col-sm-12 col-md-12">
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Data Tabel Help Topics</h3>
@@ -16,6 +16,7 @@
                             <tr>
                                 <th style="width: 10px;">NO</th>
                                 <th>Topics</th>
+                                <th>#</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -23,6 +24,9 @@
                             <tr>
                                 <td style="text-align: center;">{{ $loop->iteration }}</td>
                                 <td>{{ $helptopic->topic_name }}</td>
+                                <td>
+                                    <a href="{{ route('helptopic.edit', [Crypt::encryptString($helptopic->id)]) }}" class="btn btn-info">Edit</a>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

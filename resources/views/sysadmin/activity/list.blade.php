@@ -27,12 +27,16 @@
                         <thead>
                             <tr>
                                 <th style="width: 1%">No</th>
-                                <th>Tanggal Buat</th>
+                                <th>Tanggal</th>
+                                <th>Halte</th>
                                 <th>Nomor Tiket</th>
-                                <th>NIK</th>
-                                <!-- <th>Halte Awal</th> -->
-                                <th>Halte Akhir</th>
+                                <th>Help Topic</th>
+                                <th>Nama</th>
+                                <th>Problem</th>
+                                <th>Root Cause</th>
+                                <th>Action</th>
                                 <th>Status</th>
+                                <th>Assign To</th>
                                 <th>#</th>
                             </tr>
                         </thead>
@@ -46,15 +50,18 @@
                                         {{ $activity->created_at->diffForHumans() }}
                                     </small>
                                 </td>
+                                <td>{{ $activity->busstopAkhir->koridor == 99 ? 'Non BRT' : '(Koridor '. $activity->busstopAkhir->koridor .')' }} - {{ $activity->busstopAkhir->nama_halte }}</td>
                                 <td>{{ $activity->nomor_tiket }}</td>
+                                <td>{{ $activity->helpTopic->topic_name }}</td>
                                 <td>{{ $activity->user_id }}
                                     <br />
                                     <small>
                                         {{ $activity->user->name }}
                                     </small>
                                 </td>
-                                <!-- <td>(Koridor {{ $activity->busstopAwal->koridor }}) - {{ $activity->busstopAwal->nama_halte }}</td> -->
-                                <td>{{ $activity->busstopAkhir->koridor == 99 ? 'Non BRT' : '(Koridor '. $activity->busstopAkhir->koridor .')' }} - {{ $activity->busstopAkhir->nama_halte }}</td>
+                                <td>Koridor {{ $activity->problem }}</td>
+                                <td>Koridor {{ $activity->root_cause }}</td>
+                                <td>Koridor {{ $activity->action }}</td>
                                 <td>
                                     @if($activity->status == 'Open')
                                     <h5><span class="badge badge-danger">Open</span></h5>
@@ -64,6 +71,7 @@
                                     <h5><span class="badge badge-warning">On Progress</span></h5>
                                     @endif
                                 </td>
+                                <td>Koridor {{ $activity->assign_to }}</td>
                                 <td>
                                     <div class="btn-group">
                                         <a href="{{ route('admin.showActivity', $activity->nomor_tiket) }}" class="btn btn-primary btn-xs"><i class="fa fa-eye"></i> View</a>

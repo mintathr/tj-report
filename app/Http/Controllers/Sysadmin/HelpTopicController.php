@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Sysadmin;
 use App\Models\HelpTopic;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Crypt;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
@@ -83,9 +84,14 @@ class HelpTopicController extends Controller
      * @param  \App\Models\HelpTopic  $helpTopic
      * @return \Illuminate\Http\Response
      */
-    public function edit(HelpTopic $helpTopic)
+    public function edit($id)
     {
-        //
+        $decrypted = Crypt::decryptString($id);
+        $data = HelpTopic::findOrFail($decrypted);
+
+        return view('sysadmin.helptopic.edit', [
+            'data' => $data,
+        ]);
     }
 
     /**
@@ -95,9 +101,13 @@ class HelpTopicController extends Controller
      * @param  \App\Models\HelpTopic  $helpTopic
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HelpTopic $helpTopic)
+    public function update(Request $request, $id)
     {
-        //
+        $helpTopic = HelpTopic::findOrFail($id);
+        $helpTopic->topic_name = $request->topic_name;
+        $helpTopic->save();
+            Alert::toast('Data Berhasil Di Ubah.', 'success')->width('25rem')->padding('5px');
+            return redirect()->route('helptopic');
     }
 
     /**

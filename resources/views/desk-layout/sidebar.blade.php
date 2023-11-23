@@ -263,6 +263,17 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                <a href="{{ route('inventaris.create') }}" class="nav-link
+                                {{ request()->is('Inventaris/create') ? 'active' : '' }}
+                            ">
+                    <i class="nav-icon fas fa-cube"></i>
+                    <p>
+                        Inventaris
+                    </p>
+                </a>
+                </li>
+
                 @endif
 
                 <li class="nav-item has-treeview

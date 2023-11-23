@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-6 col-sm-12">
+    <div class="col-md-12 col-sm-12 col-lg-6">
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Form Edit Halte Busway</h3>
@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-edit">Update</button>
                 </div>
             </form>
             </div>

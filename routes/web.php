@@ -101,6 +101,8 @@ Route::prefix('admins')->group(function () {
         Route::get('HelpTopic', [HelpTopicController::class, 'index'])->name('helptopic');
         Route::get('HelpTopic/create', [HelpTopicController::class, 'create'])->name('helptopic.create');
         Route::post('HelpTopic/create', [HelpTopicController::class, 'store'])->name('helptopic.store');
+        Route::get('HelpTopic/edit/{id}', [HelpTopicController::class, 'edit'])->name('helptopic.edit');
+        Route::patch('HelpTopic/edit/{id}', [HelpTopicController::class, 'update'])->name('helptopic.update');
 
 
         /* USER */

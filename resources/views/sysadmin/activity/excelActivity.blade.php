@@ -2,15 +2,14 @@
     <thead>
         <tr>
             <th style="width: 1%">No</th>
-            <th>Tanggal Buat</th>
+            <th>Tanggal</th>
+            <th>Halte</th>
             <th>Nomor Tiket</th>
+            <th>Help Topic</th>
             <th>NIK</th>
             <th>Nama</th>
-            <!-- <th>Halte Awal</th> -->
-            <th>Halte Akhir</th>
             <th>Problem</th>
             <th>Root Cause</th>
-            <th>Help Topic</th>
             <th>Action</th>
             <th>Status</th>
             <th>Assign To</th>
@@ -22,14 +21,13 @@
             <td>{{ $loop->iteration }}</td>
             <td>{{ $activity->created_at->toDateString() }}
             </td>
+            <td>{{ $activity->busstopAkhir->koridor == 99 ? 'Non BRT' : '(Koridor '. $activity->busstopAkhir->koridor .')' }} - {{ $activity->busstopAkhir->nama_halte }}</td>
             <td>{{ $activity->nomor_tiket }}</td>
+            <td>{{ $activity->helpTopic->topic_name }}</td>
             <td>{{ $activity->user_id }}</td>
             <td>{{ $activity->user->name }}</td>
-            <!-- <td>(Koridor {{ $activity->busstopAwal->koridor }}) - {{ $activity->busstopAwal->nama_halte }}</td> -->
-            <td>{{ $activity->busstopAkhir->koridor == 99 ? 'Non BRT' : '(Koridor '. $activity->busstopAkhir->koridor .')' }} - {{ $activity->busstopAkhir->nama_halte }}</td>
             <td>{{ $activity->problem }}</td>
             <td>{{ $activity->root_cause }}</td>
-            <td>{{ $activity->helpTopic->topic_name }}</td>
             <td>{{ $activity->action }}</td>
             <td>
                 @if($activity->status == 'Open')
@@ -41,7 +39,6 @@
                 @endif
             </td>
             <td>{{ $activity->assign_to }}</td>
-
         </tr>
         @endforeach
     </tbody>
