@@ -23,7 +23,7 @@ class BusStopController extends Controller
      */
     public function index()
     {
-        $busstops = BusStop::get();
+        $busstops = BusStop::withTrashed()->get();
         return view('sysadmin.busstop.index', [
             'busstops' => $busstops,
         ]);

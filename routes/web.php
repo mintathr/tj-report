@@ -94,6 +94,7 @@ Route::prefix('admins')->group(function () {
         Route::get('Halte', [BusStopController::class, 'index'])->name('halte');
         Route::get('Halte/create', [BusStopController::class, 'create'])->name('halte.create');
         Route::post('Halte/create', [BusStopController::class, 'store'])->name('halte.store');
+        Route::get('Halte/{id}/soft', [BusStopController::class, 'create'])->name('halte.restore');
         Route::get('Halte/edit/{id}', [BusStopController::class, 'edit'])->name('halte.edit');
         Route::patch('Halte/edit/{id}', [BusStopController::class, 'update'])->name('halte.update');
 
