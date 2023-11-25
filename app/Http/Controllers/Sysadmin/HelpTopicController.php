@@ -23,7 +23,7 @@ class HelpTopicController extends Controller
      */
     public function index()
     {
-        $helptopics = HelpTopic::get();
+        $helptopics = HelpTopic::withTrashed()->get();
         return view('sysadmin.helptopic.index', [
             'helptopics' => $helptopics,
         ]);
@@ -119,5 +119,21 @@ class HelpTopicController extends Controller
     public function destroy(HelpTopic $helpTopic)
     {
         //
+    }
+
+    public function delete($id)
+    {
+        $helptopic = HelpTopic::findOrFail($id);
+        $helptopic->delete();
+        Alert::toast('Data Berhasil Di Non Aktifkan.', 'success')->width('25rem')->padding('5px');
+        return back();
+    }
+
+    public function restore($id)
+    {
+        $helptopic = HelpTopic::onlyTrashed()->where('id',$id);
+        $helptopic->restore();
+        Alert::toast('Data Berhasil Di Aktifkan.', 'success')->width('25rem')->padding('5px');
+        return back();
     }
 }

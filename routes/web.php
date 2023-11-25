@@ -99,6 +99,7 @@ Route::prefix('admins')->group(function () {
         Route::get('Halte/{id}/soft', [BusStopController::class, 'create'])->name('halte.restore');
         Route::get('Halte/edit/{id}', [BusStopController::class, 'edit'])->name('halte.edit');
         Route::patch('Halte/edit/{id}', [BusStopController::class, 'update'])->name('halte.update');
+        Route::get('Halte/delete/{id}', [BusStopController::class, 'delete'])->name('halte.delete');
         Route::get('Halte/restore/{id}', [BusStopController::class, 'restore'])->name('halte.restore');
 
         /* PARAMETER HELP TOPICS */
@@ -107,6 +108,8 @@ Route::prefix('admins')->group(function () {
         Route::post('HelpTopic/create', [HelpTopicController::class, 'store'])->name('helptopic.store');
         Route::get('HelpTopic/edit/{id}', [HelpTopicController::class, 'edit'])->name('helptopic.edit');
         Route::patch('HelpTopic/edit/{id}', [HelpTopicController::class, 'update'])->name('helptopic.update');
+        Route::get('HelpTopic/delete/{id}', [HelpTopicController::class, 'delete'])->name('helptopic.delete');
+        Route::get('HelpTopic/restore/{id}', [HelpTopicController::class, 'restore'])->name('helptopic.restore');
 
 
         /* USER */

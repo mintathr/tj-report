@@ -62,7 +62,7 @@
                                                                 <div class="col-6">
                                                                     <button type="button"
                                                                         class="btn btn-primary border-radius-100 btn-block confirmation-btn"
-                                                                        onclick="window.location.href='{{ route("halte.restore", [$busstop->id]) }}';"></button>
+                                                                        onclick="window.location.href='{{ route("halte.restore", [$busstop->id]) }}';"><i class="fa fa-unlock"></i></button>
                                                                     Ya
                                                                 </div>
                                                             </div>
@@ -94,7 +94,7 @@
                                                                 <div class="col-6">
                                                                     <button type="button"
                                                                         class="btn btn-primary border-radius-100 btn-block confirmation-btn"
-                                                                        onclick="window.location.href='{{ route("halte.restore", [$busstop->id]) }}';"></button>
+                                                                        onclick="window.location.href='{{ route("halte.delete", [$busstop->id]) }}';"><i class="fa fa-lock"></i></button>
                                                                     Ya
                                                                 </div>
                                                             </div>
