@@ -66,6 +66,8 @@ Route::get('changePasswordExp', [ChangePasswordController::class, 'show'])->name
 Route::post('changePasswordExp', [ChangePasswordController::class, 'changePasswordExp']);
 /* Route::middleware('auth:admin')->group(function () {
     Route::get('home', 'AdminsController@index')->name('admin.home'); */
+
+
 Route::prefix('admins')->group(function () {
     Route::group(['middleware' => 'admin'], function () {
         Route::get('home', [HomeController::class, 'handleAdmin'])->name('admin');
@@ -97,6 +99,7 @@ Route::prefix('admins')->group(function () {
         Route::get('Halte/{id}/soft', [BusStopController::class, 'create'])->name('halte.restore');
         Route::get('Halte/edit/{id}', [BusStopController::class, 'edit'])->name('halte.edit');
         Route::patch('Halte/edit/{id}', [BusStopController::class, 'update'])->name('halte.update');
+        Route::get('Halte/restore/{id}', [BusStopController::class, 'restore'])->name('halte.restore');
 
         /* PARAMETER HELP TOPICS */
         Route::get('HelpTopic', [HelpTopicController::class, 'index'])->name('helptopic');

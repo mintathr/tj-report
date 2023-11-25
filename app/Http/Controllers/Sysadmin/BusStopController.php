@@ -129,4 +129,9 @@ class BusStopController extends Controller
     {
         //
     }
+
+    public function restore($id)
+    {
+        dd($id);
+    }
 }
