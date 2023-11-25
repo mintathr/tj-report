@@ -11,11 +11,11 @@ class Inventaris extends Model
 
     protected $fillable = [
         'halte_id',
-        'nama_barang',
         'serial_number',
         'status',
-        'qty',
         'user_id',
+        'item_id',
+        'brand_id'
     ];
 
     public function user()
@@ -26,6 +26,16 @@ class Inventaris extends Model
     public function halteId()
     {
         return $this->belongsTo(BusStop::class, 'halte_id', 'id')->withDefault(); //ini menampilkan default
+    }
+
+    public function item()
+    {
+        return $this->belongsTo(Items::class, 'item_id', 'id')->withDefault(); //ini menampilkan default
+    }
+
+    public function brand()
+    {
+        return $this->belongsTo(Brands::class, 'brand_id', 'id')->withDefault(); //ini menampilkan default
     }
     
 }

@@ -12,6 +12,8 @@ use App\Http\Controllers\User\UploadAssetController;
 use App\Http\Controllers\Sysadmin\AdmAssetController;
 use App\Http\Controllers\Sysadmin\HelpTopicController;
 use App\Http\Controllers\Sysadmin\AdmActivityController;
+use App\Http\Controllers\Sysadmin\BrandController;
+use App\Http\Controllers\Sysadmin\ItemController;
 use App\Http\Controllers\User\InventarisController;
 
 /*
@@ -110,6 +112,24 @@ Route::prefix('admins')->group(function () {
         Route::patch('HelpTopic/edit/{id}', [HelpTopicController::class, 'update'])->name('helptopic.update');
         Route::get('HelpTopic/delete/{id}', [HelpTopicController::class, 'delete'])->name('helptopic.delete');
         Route::get('HelpTopic/restore/{id}', [HelpTopicController::class, 'restore'])->name('helptopic.restore');
+
+        /* PARAMETER BRAND */
+        Route::get('Brand', [BrandController::class, 'index'])->name('brand');
+        Route::get('Brand/create', [BrandController::class, 'create'])->name('brand.create');
+        Route::post('Brand/create', [BrandController::class, 'store'])->name('brand.store');
+        Route::get('Brand/edit/{id}', [BrandController::class, 'edit'])->name('brand.edit');
+        Route::patch('Brand/edit/{id}', [BrandController::class, 'update'])->name('brand.update');
+        Route::get('Brand/delete/{id}', [BrandController::class, 'delete'])->name('brand.delete');
+        Route::get('Brand/restore/{id}', [BrandController::class, 'restore'])->name('brand.restore');
+
+        /* PARAMETER ITEM*/
+        Route::get('Item', [ItemController::class, 'index'])->name('item');
+        Route::get('Item/create', [ItemController::class, 'create'])->name('item.create');
+        Route::post('Item/create', [ItemController::class, 'store'])->name('item.store');
+        Route::get('Item/edit/{id}', [ItemController::class, 'edit'])->name('item.edit');
+        Route::patch('Item/edit/{id}', [ItemController::class, 'update'])->name('item.update');
+        Route::get('Item/delete/{id}', [ItemController::class, 'delete'])->name('item.delete');
+        Route::get('Item/restore/{id}', [ItemController::class, 'restore'])->name('item.restore');
 
 
         /* USER */

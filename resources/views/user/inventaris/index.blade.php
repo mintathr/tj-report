@@ -16,10 +16,10 @@
                             <tr>
                                 <th style="width: 10px;">NO</th>
                                 <th>Nama Halte</th>
-                                <th>Nama barang</th>
+                                <th>Nama Barang</th>
+                                <th>Merk</th>
                                 <th>SN</th>
                                 <th>Status</th>
-                                <th>QTY</th>
                                 <th>Petugas</th>
                             </tr>
                         </thead>
@@ -28,10 +28,10 @@
                             <tr>
                                 <td style="text-align: center;">{{ $loop->iteration }}</td>
                                 <td>{{ $inventory->halteId->nama_halte }}</td>
-                                <td>{{ $inventory->nama_barang }}</td>
+                                <td>{{ $inventory->item->name }}</td>
+                                <td>{{ $inventory->brand->name }}</td>
                                 <td>{{ $inventory->serial_number }}</td>
                                 <td>{{ $inventory->status }}</td>
-                                <td>{{ $inventory->qty }}</td>
                                 <td>{{ $inventory->user->name }}</td>
                             </tr>
                             @endforeach

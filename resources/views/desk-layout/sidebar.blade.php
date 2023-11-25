@@ -167,6 +167,73 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item has-treeview
+                    {{ request()->is('admins/Brand*') ? 'menu-open' : '' }}
+                ">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Brand
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('brand.create') }}" class="nav-link
+                                {{ request()->is('admins/Brand/create') ? 'active' : '' }}
+                            ">
+                                <i class="nav-icon fas fa-pencil-alt"></i>
+                                <p>
+                                    Create
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('brand') }}" class="nav-link
+                                {{ request()->is('admins/Brand') ? 'active' : '' }}
+                            ">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Data
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item has-treeview
+                    {{ request()->is('admins/Item*') ? 'menu-open' : '' }}
+                ">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Item
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('item.create') }}" class="nav-link
+                                {{ request()->is('admins/Item/create') ? 'active' : '' }}
+                            ">
+                                <i class="nav-icon fas fa-pencil-alt"></i>
+                                <p>
+                                    Create
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('item') }}" class="nav-link
+                                {{ request()->is('admins/Item') ? 'active' : '' }}
+                            ">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Data
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="nav-header">SECURITY</li>
                 <li class="nav-item has-treeview
                     {{ request()->is('admins/User') ? 'menu-open' : '' }}

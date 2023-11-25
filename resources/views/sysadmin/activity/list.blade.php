@@ -59,9 +59,9 @@
                                         {{ $activity->user->name }}
                                     </small>
                                 </td>
-                                <td>Koridor {{ $activity->problem }}</td>
-                                <td>Koridor {{ $activity->root_cause }}</td>
-                                <td>Koridor {{ $activity->action }}</td>
+                                <td>{{ $activity->problem }}</td>
+                                <td>{{ $activity->root_cause }}</td>
+                                <td>{{ $activity->action }}</td>
                                 <td>
                                     @if($activity->status == 'Open')
                                     <h5><span class="badge badge-danger">Open</span></h5>
@@ -71,7 +71,7 @@
                                     <h5><span class="badge badge-warning">On Progress</span></h5>
                                     @endif
                                 </td>
-                                <td>Koridor {{ $activity->assign_to }}</td>
+                                <td>{{ $activity->assign_to }}</td>
                                 <td>
                                     <div class="btn-group">
                                         <a href="{{ route('admin.showActivity', $activity->nomor_tiket) }}" class="btn btn-primary btn-xs"><i class="fa fa-eye"></i> View</a>

@@ -33,9 +33,28 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label>Nama Barang</label>
-                        <input type="text" name="nama_barang" class="form-control @error('nama_barang') is-invalid @enderror" id="" value="{{ old('nama_barang') }}" placeholder="Masukkan Nama Barang">
-                        @error('nama_barang')
+                        <label>Nama Item</label>
+                        <select name="item_id" class="form-control select2bs4 @error('item_id') is-invalid @enderror" style="width: 100%;">
+                            <option selected disabled>== Pilih Item ==</option>
+                            @foreach ($items as $item)
+                                <option value="{{ $item->id }}" {{ (old("item_id") == $item->id ? "selected":"") }}>{{ $item->name }}</option>
+                            @endforeach
+                        </select>
+                        @error('item_id')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label>Brand</label>
+                        <select name="brand_id" class="form-control select2bs4 @error('brand_id') is-invalid @enderror" style="width: 100%;">
+                            <option selected disabled>== Pilih Brand ==</option>
+                            @foreach ($brands as $brand)
+                                <option value="{{ $brand->id }}" {{ (old("brand_id") == $brand->id ? "selected":"") }}>{{ $brand->name }}</option>
+                            @endforeach
+                        </select>
+                        @error('brand_id')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
@@ -45,15 +64,6 @@
                         <label>Serial Number</label>
                         <input type="text" name="serial_number" class="form-control @error('serial_number') is-invalid @enderror" id="" value="{{ old('serial_number') }}" placeholder="Masukkan Serial number">
                         @error('serial_number')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label>Qty</label>
-                        <input type="text" name="qty" class="form-control @error('qty') is-invalid @enderror" id="" oninput="this.value=this.value.replace(/[^0-9]/g,'');" min="1" maxlength="2" value="{{ old('qty') }}" placeholder="Jumlah Barang">
-                        @error('qty')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
