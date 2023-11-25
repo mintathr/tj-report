@@ -63,37 +63,7 @@
                 </li>
 
                 <li class="nav-header">ASSET</li>
-                <!-- <li class="nav-item has-treeview
-                    {{ request()->is('admins/Asset*') ? 'menu-open' : '' }}
-                    {{ request()->is('admins/Find*') ? 'menu-open' : '' }}
-                ">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-table"></i>
-                        <p>
-                            Asset
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('asset.user.create') }}" class="nav-link 
-                        {{ request()->is('Asset/Create') ? 'active' : '' }}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>
-                                    Create
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin.listAsset') }}" class="nav-link
-                            {{ request()->is('admins/Asset*') ? 'active' : '' }}
-                            ">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Tabel</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li> -->
+                
 
                 <li class="nav-item has-treeview
                     {{ request()->is('Inventaris*') ? 'menu-open' : '' }}
@@ -250,15 +220,6 @@
                         <i class="nav-icon fas fa-pencil-alt"></i>
                         <p>
                             Activity
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('asset.user.create') }}" class="nav-link 
-                        {{ request()->is('Asset/Create') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-snowflake"></i>
-                        <p>
-                            Asset
                         </p>
                     </a>
                 </li>

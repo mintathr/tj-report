@@ -50,10 +50,10 @@ Route::post('upload/perbaikan', [UploadController::class, 'storePerbaikan'])->na
 Route::delete('delete', [UploadController::class, 'delete'])->name('filepond.delete');
 
 /* ASSET */
-Route::get('Asset/Create', [AssetController::class, 'create'])->name('asset.user.create');
+/* Route::get('Asset/Create', [AssetController::class, 'create'])->name('asset.user.create');
 Route::post('Asset/Create', [AssetController::class, 'store'])->name('createAsset');
 Route::post('uploadAsset', [UploadAssetController::class, 'store'])->name('uploadAsset');
-Route::delete('deleteAsset', [UploadAssetController::class, 'delete'])->name('filepond.asset.delete');
+Route::delete('deleteAsset', [UploadAssetController::class, 'delete'])->name('filepond.asset.delete'); */
 
 /* PARAMETER INVENTARIS */
 Route::get('Inventaris', [InventarisController::class, 'index'])->name('inventaris');
@@ -83,12 +83,12 @@ Route::prefix('admins')->group(function () {
         Route::get('export-report-search/{range}', [AdmActivityController::class, 'exportActivity']);
 
         /* REPORT ASSET */
-        Route::get('Asset', [AdmAssetController::class, 'index'])->name('admin.listAsset');
+        /* Route::get('Asset', [AdmAssetController::class, 'index'])->name('admin.listAsset');
         Route::get('Asset/{id}', [AdmAssetController::class, 'show'])->name('admin.showAsset');
         Route::get('Asset/edit/{asset:id}', [AdmAssetController::class, 'edit'])->name('admin.editAsset');
         Route::patch('Asset/edit/{asset:id}', [AdmAssetController::class, 'update'])->name('admin.updateAsset');
         Route::get('Asset/D/{uploadasset:filename}', [AdmAssetController::class, 'getDownload']);
-        Route::delete('Asset/{asset:id}', [AdmAssetController::class, 'destroy'])->name('admin.deleteAsset');
+        Route::delete('Asset/{asset:id}', [AdmAssetController::class, 'destroy'])->name('admin.deleteAsset'); */
 
         
 
