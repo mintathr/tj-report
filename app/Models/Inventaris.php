@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-use App\Models\{User,Items,BusStop, Brands};
+use App\Models\Brands;
+use App\Models\{User,Items,BusStop};
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 

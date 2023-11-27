@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Models\BusStop;
-use App\Models\Inventaris;
+use App\Models\{Brands, BusStop,Inventaris,Items};
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\brands;
-use App\Models\Items;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Auth;
@@ -26,7 +23,7 @@ class InventarisController extends Controller
     {
         $halte  = BusStop::withTrashed()->get();
         $items = Items::withTrashed()->get();
-        $brands = brands::withTrashed()->get();
+        $brands = Brands::withTrashed()->get();
         $busKoridor =  $halte->groupBy('koridor');
 
         return view('user.inventaris.create', [
