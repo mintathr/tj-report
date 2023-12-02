@@ -143,6 +143,7 @@
                     <div class=" info-box-content">
 
                         <span class="info-box-text">{{ $activity->busstopAkhir->nama_halte }}</span>
+                        <span class="info-box-text">{{ $activity->user->name }}</span>
 
                         <span class="info-box-number">{{ $activity->nomor_tiket }}</span>
 
@@ -173,6 +174,7 @@
                 <div class=" info-box-content">
 
                     <span class="info-box-text">{{ $activity->busstopAkhir->nama_halte }}</span>
+                    <span class="info-box-text">{{ $activity->user->name }}</span>
 
                     <span class="info-box-number">{{ $activity->nomor_tiket }}</span>
 
@@ -201,6 +203,7 @@
                 <div class="info-box-content">
 
                     <span class="info-box-text">{{ $activity->busstopAkhir->nama_halte }}</span>
+                    <span class="info-box-text">{{ $activity->user->name }}</span>
 
                     <span class="info-box-number">{{ $activity->nomor_tiket }}</span>
 

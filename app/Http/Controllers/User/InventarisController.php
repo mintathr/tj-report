@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Exports\InventarisExport;
+use App\Models\Items;
+use App\Models\brands;
 use App\Models\BusStop;
 use App\Models\Inventaris;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\brands;
-use App\Models\Items;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Support\Facades\Auth;
 
 class InventarisController extends Controller
 {
@@ -43,6 +45,7 @@ class InventarisController extends Controller
             'halte_id.required'         => 'Nama Halte Harus Diisi!',
             #'nama_barang.required'      => 'Nama Barang Harus Diisi!',
             'serial_number.required'    => 'Serial Number Harus Diisi!',
+            'serial_number.unique'    => 'Serial Number Sudah Ada!',
             'item_id.required'              => 'Item Harus Diisi!',
             'brand_id.required'              => 'Brand Harus Diisi!',
             #'qty.required'              => 'Qty Harus Diisi!',
@@ -51,7 +54,7 @@ class InventarisController extends Controller
         $request->validate([
             'halte_id'      => 'required',
             #'nama_barang'   => 'required',
-            'serial_number' => 'required',
+            'serial_number' => 'required|unique:inventaris',
             'item_id'       => 'required',
             'brand_id'      => 'required',
             #'qty'           => 'required',
@@ -74,4 +77,35 @@ class InventarisController extends Controller
         return back();
     }
     
+    public function edit($id)
+    {
+        $decrypted = Crypt::decryptString($id);
+        $data = Inventaris::findOrFail($decrypted);
+        $brands = brands::withTrashed()->get();
+
+
+        return view('user.inventaris.edit', [
+            'data' => $data,
+            'brands' => $brands,
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $inventaris = Inventaris::findOrFail($id);
+        Inventaris::where('id', $id)
+            ->update([
+                'brand_id'          => $request->brand_id,
+                'serial_number'     => $request->serial_number,
+                'status'            => $request->status,
+                'user_id'           => Auth::user()->user_id
+            ]);
+        Alert::toast('Data Berhasil Di Ubah.', 'success')->width('25rem')->padding('5px');
+        return redirect()->route('inventaris');
+    }
+
+    public function export()
+    {
+        return (new InventarisExport())->download('Data Inventaris.xlsx');
+    }
 }

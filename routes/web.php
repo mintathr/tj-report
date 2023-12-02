@@ -61,6 +61,9 @@ Route::delete('deleteAsset', [UploadAssetController::class, 'delete'])->name('fi
 Route::get('Inventaris', [InventarisController::class, 'index'])->name('inventaris');
 Route::get('Inventaris/create', [InventarisController::class, 'create'])->name('inventaris.create');
 Route::post('Inventaris/create', [InventarisController::class, 'store'])->name('inventaris.store');
+Route::get('Inventaris/edit/{id}', [InventarisController::class, 'edit'])->name('inventaris.edit');
+Route::patch('Inventaris/edit/{id}', [InventarisController::class, 'update'])->name('inventaris.update');
+Route::get('Inventaris/excel', [InventarisController::class, 'export'])->name('inventaris.excel');
 
 Route::get('changePassword', [ChangePasswordController::class, 'index'])->name('changePassword');
 Route::post('changePassword', [ChangePasswordController::class, 'changePassword']);
