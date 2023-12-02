@@ -3,10 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Exports\InventarisExport;
-use App\Models\Items;
-use App\Models\brands;
-use App\Models\BusStop;
-use App\Models\Inventaris;
+use App\Models\{Items,brands,BusStop,Inventaris};
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -28,7 +25,7 @@ class InventarisController extends Controller
     {
         $halte  = BusStop::withTrashed()->get();
         $items = Items::withTrashed()->get();
-        $brands = brands::withTrashed()->get();
+        $brands = Brands::withTrashed()->get();
         $busKoridor =  $halte->groupBy('koridor');
 
         return view('user.inventaris.create', [
