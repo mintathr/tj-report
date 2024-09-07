@@ -84,7 +84,7 @@ class ActivityController extends Controller
         $messages = [
             'fileImage.required'        => 'Photo Harus Diupload',
             'nomor_tiket.required'      => 'Nomor Tiket Harus Diisi',
-            'nomor_tiket.required'      => 'Nomor Tiket Harus 10 Digit',
+            'nomor_tiket.required'      => 'Nomor Tiket Harus 7 Digit',
             #'halte_awal_id.required'    => 'Halte Awal Harus Diisi',
             'halte_akhir_id.required'   => 'Halte Akhir Harus Diisi',
             'problem.required'          => 'Problem Harus Diisi',
@@ -93,7 +93,7 @@ class ActivityController extends Controller
 
         $request->validate([
             'fileImage'         => 'required',
-            'nomor_tiket'       => 'required|numeric|digits:10',
+            'nomor_tiket'       => 'required|numeric|digits:7',
             #'halte_awal_id'     => 'required',
             'halte_akhir_id'    => 'required',
             'problem'           => 'required',
