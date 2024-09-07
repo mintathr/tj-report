@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Exports\InventarisExport;
-use App\Models\{Items,brands,BusStop,Inventaris};
+use App\Models\{Items,Brands,BusStop,Inventaris};
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
